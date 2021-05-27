@@ -12,6 +12,7 @@ from bot2 import db, bot
 async def send_all():
     subscriptions = db.get_subscriptions()
     prise = read_json()
+    print(subscriptions)
     data = datetime.today().strftime("%d.%m.%Y")
 
     for user in subscriptions:
