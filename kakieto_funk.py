@@ -15,6 +15,7 @@ async def send_all():
     data = datetime.today().strftime("%d.%m.%Y")
 
     for user in subscriptions:
+        print(user)
         await bot.send_message(user[1], text.prise_rozsilka(data,prise), disable_notification=True)
 
 
