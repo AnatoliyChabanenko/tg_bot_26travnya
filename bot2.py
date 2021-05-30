@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 
 bot = Bot(TOKEN)
 dp = Dispatcher(bot)
-db = SQLighter("us-cdbr-east-03.cleardb.com", "b948464054c13e", "bc4190ee", "3306", "heroku_8e51253995bdd05")
+db = SQLighter('db.db')
 nb = Nibulon()
 text = Text()
 
