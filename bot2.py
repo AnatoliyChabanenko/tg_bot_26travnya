@@ -3,14 +3,13 @@ import kakieto_funk as fu
 import logging
 import asyncio
 import keybord_my as kb
-from google import proschet
+from google import google_def
 from sqlighter import SQLighter
 from aiogram import Bot, Dispatcher, executor, types
 from parsing_class import Nibulon
 from datetime import datetime
 from my_text import Text
 from dotenv import  load_dotenv
-import mysql.connector
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
@@ -43,7 +42,7 @@ async def process_command(message: types.Message):
 
 @dp.message_handler(content_types=['location'])
 async def handle_loc(message):
-    km = float(proschet(message.location))
+    km = float(google_def(message.location))
     prise = round(km * 1.1)
 
     await message.answer(text.location(km, prise),

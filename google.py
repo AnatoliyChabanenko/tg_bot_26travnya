@@ -6,7 +6,7 @@ load_dotenv()
 API_KEY = os.getenv('API_KEY')
 
 
-def proschet(location: dict):
+def google_def(location: dict):
     me = ('46.849476', '31.990699')
     you = (location['latitude'], location['longitude'])
     gmaps_client = googlemaps.Client(key=API_KEY)
