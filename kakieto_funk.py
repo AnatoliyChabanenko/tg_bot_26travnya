@@ -15,10 +15,8 @@ async def send_all():
     data = datetime.today().strftime("%d.%m.%Y")
 
     for user in subscriptions:
-        print(user)
         try: await bot.send_message(user[1], text.prise_rozsilka(data,prise), disable_notification=True)
-        except:
-            print('пользователь заблокировал ')
+        except: print('пользователь заблокировал ')
 
 
 def admin_validate(message: types.Message)-> bool:

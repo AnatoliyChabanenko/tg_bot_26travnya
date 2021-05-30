@@ -1,11 +1,29 @@
 
-import sqlite3
+import mysql.connector
+from mysql.connector import Error
+
+def create_connection(host_name, user_name, user_password,port,user_database):
+    connection = None
+    try:
+        connection = mysql.connector.connect(
+            host=host_name,
+            user=user_name,
+            passwd=user_password,
+            port=port,
+            database=user_database
+        )
+        print("Connection to MySQL DB successful")
+    except Error as e:
+        print(f"The error '{e}' occurred")
+
+    return connection
+
 
 class SQLighter:
 
-    def __init__(self, database):
+    def __init__(self, host_name,user_name,user_password,port ,user_database):
         """Подключаемся к БД и сохраняем курсор соединения"""
-        self.connection = sqlite3.connect(database)
+        self.connection = create_connection(host_name,user_name,user_password,port,user_database)
         self.cursor = self.connection.cursor()
         # self.loop = asyncio.get_event_loop()
 

@@ -10,6 +10,7 @@ from parsing_class import Nibulon
 from datetime import datetime
 from my_text import Text
 from dotenv import  load_dotenv
+import mysql.connector
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
@@ -20,7 +21,7 @@ logging.basicConfig(level=logging.INFO)
 
 bot = Bot(TOKEN)
 dp = Dispatcher(bot)
-db = SQLighter('db.db')
+db = SQLighter("us-cdbr-east-03.cleardb.com", "b948464054c13e", "bc4190ee", "3306", "heroku_8e51253995bdd05")
 nb = Nibulon()
 text = Text()
 
