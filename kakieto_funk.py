@@ -4,7 +4,6 @@ from my_text import Text
 text = Text()
 
 from aiogram import types
-from geopy.distance import geodesic
 
 from bot2 import db, bot
 
@@ -17,7 +16,9 @@ async def send_all():
 
     for user in subscriptions:
         print(user)
-        await bot.send_message(user[1], text.prise_rozsilka(data,prise), disable_notification=True)
+        try: await bot.send_message(user[1], text.prise_rozsilka(data,prise), disable_notification=True)
+        except:
+            print('пользователь заблокировал ')
 
 
 def admin_validate(message: types.Message)-> bool:
